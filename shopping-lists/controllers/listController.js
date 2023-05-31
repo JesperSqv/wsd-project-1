@@ -12,7 +12,7 @@ const addList = async (request) => {
 
   await listService.create(name);
 
-  return redirectTo("/lists");
+  return requestUtils.redirectTo("/lists");
 };
 
 const viewLists = async (request) => {

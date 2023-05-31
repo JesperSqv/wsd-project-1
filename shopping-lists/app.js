@@ -1,8 +1,24 @@
-import { serve } from "./deps.js";
+import { serve } from "https://deno.land/std@0.171.0/http/server.ts";
+import { configure } from "https://deno.land/x/eta@v2.0.0/mod.ts";
+import * as listController from "./controllers/listController.js";
+import * as requestUtils from "./utils/requestUtils.js";
+
+configure({
+  views: `${Deno.cwd()}/views/`,
+});
 
 const handleRequest = async (request) => {
-  console.log("Responding with Hello world!");
-  return new Response("Hello world!");
+  const url = new URL(request.url);
+
+  if (url.pathname === "/" && request.method === "GET") {
+    requestUtils.redirectTo("/lists");
+  } else if (url.pathname === "/lists" && request.method === "POST") {
+    return await listController.addList(request);
+  } else if (url.pathname === "/lists" && request.method === "GET") {
+    return await listController.viewLists(request);
+  } else {
+    return new Response("Not found", { status: 404 });
+  }
 };
 
 serve(handleRequest, { port: 7777 });
