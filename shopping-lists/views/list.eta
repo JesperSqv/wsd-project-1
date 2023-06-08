@@ -1,19 +1,28 @@
 <h1><%= it.list.name %></h1>
 
-<% if (!it.currentWorkEntry) { %>
 
-<h2>Start a work entry</h2>
 
-<form action="/tasks/<%= it.task.id %>/entries" method="POST">
-  <input type="submit" value="Start a work entry!" />
+<h2>Add an item to the list!</h2>
+
+<form action="/lists/<%= it.list.id %>/items" method="POST">
+  <input type="text" value="name" />
+  <input type="submit" value="Add an item!" />
 </form>
 
+<h2>List!</h2>
+<ul>
+<% it.items.forEach((item) => { %>
+<% if(!item.collected){ %> 
+    <li>
+        <%= item.name %>
+        <form action="/lists/<%= it.list.id %>/items/<%= it.item.id %>/collect" method="POST">
+          <input type="submit" value="Mark collected!" />
+        </form>
+    </li>
 <% } else { %>
-
-<p>Current work entry started on <%= it.currentWorkEntry.started_on %></p>
-
-<form method="POST" action="/tasks/<%= it.task.id %>/entries/<%= it.currentWorkEntry.id %>">
-  <input type="submit" value="Finish work entry!" />
-</form>
-
+    <li>
+        <del><%= item.name %></del>
+    </li>
 <% } %>
+<% }); %>
+</ul>
