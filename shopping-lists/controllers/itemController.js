@@ -1,5 +1,5 @@
 import { renderFile } from "https://deno.land/x/eta@v2.0.0/mod.ts";
-import * as itemService from "../services/listService.js";
+import * as itemService from "../services/itemService.js";
 import * as requestUtils from "../utils/requestUtils.js";
 
 const responseDetails = {
@@ -32,7 +32,6 @@ const viewItems = async (request) => {
     const data = {
         list: await itemService.findItems(urlParts[2]),
     };
-    
     return new Response(await renderFile("list.eta", data), responseDetails);
 };
 

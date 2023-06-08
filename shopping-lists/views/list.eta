@@ -10,12 +10,14 @@
 </form>
 
 <h2>List!</h2>
+<% if(it.list === false){ %>
+<% } else { %>
 <ul>
-<% it.items.forEach((item) => { %>
+<% it.list.forEach((item) => { %>
 <% if(!item.collected){ %> 
     <li>
         <%= item.name %>
-        <form action="/lists/<%= it.list.id %>/items/<%= it.item.id %>/collect" method="POST">
+        <form action="/lists/<%= it.list.id %>/items/<%= item.id %>/collect" method="POST">
           <input type="submit" value="Mark collected!" />
         </form>
     </li>
@@ -26,3 +28,4 @@
 <% } %>
 <% }); %>
 </ul>
+<% } %>
