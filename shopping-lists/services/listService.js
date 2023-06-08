@@ -8,4 +8,13 @@ const findAllActiveShoppingLists = async () => {
   return await sql`SELECT * FROM shopping_lists WHERE active = true`;
 };
 
-export { create, findAllActiveShoppingLists };
+const findName = async (id) => {
+  const rows = await sql`SELECT * FROM shopping_lists where id = ${ id }`;
+  if (rows && rows.length > 0) {
+    return rows[0];
+  }
+
+  return false;
+};
+
+export { create, findAllActiveShoppingLists, findName };

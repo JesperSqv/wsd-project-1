@@ -4,16 +4,16 @@
 
 <h2>Add an item to the list!</h2>
 
-<form action="/lists/<%= it.list.id %>/items" method="POST">
-  <input type="text" value="name" />
+<form method="POST" action="/lists/<%= it.list.id %>/items" >
+  Name: <input type="text" name="itemName" />
   <input type="submit" value="Add an item!" />
 </form>
 
 <h2>List!</h2>
-<% if(it.list === false){ %>
+<% if(it.items === false){ %>
 <% } else { %>
 <ul>
-<% it.list.forEach((item) => { %>
+<% it.items.forEach((item) => { %>
 <% if(!item.collected){ %> 
     <li>
         <%= item.name %>

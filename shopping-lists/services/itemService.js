@@ -6,12 +6,12 @@ const createItem = async (listId, name) => {
     VALUES (${listId}, ${name})`;
 };
 
-const findItems= async (listId) => {
+const findItems = async (listId) => {
   const rows = await sql`SELECT * FROM shopping_list_items
     WHERE shopping_list_id = ${ listId }`;
 
   if (rows && rows.length > 0) {
-    return rows[0];
+    return rows;
   }
 
   return false;

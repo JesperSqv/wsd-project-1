@@ -17,8 +17,10 @@ const handleRequest = async (request) => {
     return await listController.addList(request);
   } else if (url.pathname === "/lists" && request.method === "GET") {
     return await listController.viewLists(request);
-  } else if (url.pathname === "/lists/1" && request.method === "GET") {
+  } else if (url.pathname.match("lists/[0-9]+") && request.method === "GET") {
     return await itemController.viewItems(request);
+  } else if (url.pathname.match("lists/[0-9]+/items") && request.method === "POST") {
+    return await itemController.createItem(request);
   } else {
     return new Response("Not found", { status: 404 });
   }
