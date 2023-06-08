@@ -23,6 +23,8 @@ const handleRequest = async (request) => {
     return await itemController.collectItem(request);
   } else if (url.pathname.match("lists/[0-9]+/items") && request.method === "POST") {
     return await itemController.createItem(request);
+  } else if (url.pathname.match("lists/[0-9]+/deactivate") && request.method === "POST") {
+    return await listController.deactivateList(request);
   } else {
     return new Response("Not found", { status: 404 });
   }

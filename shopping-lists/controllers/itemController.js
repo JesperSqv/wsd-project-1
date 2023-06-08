@@ -13,8 +13,7 @@ const createItem = async (request) => {
 
     const url = new URL(request.url);
     const urlParts = url.pathname.split("/");
-    console.log("Line 16");
-    console.log(name);
+    
     await itemService.createItem(urlParts[2], name);
   
     return requestUtils.redirectTo(`/lists/${urlParts[2]}`);

@@ -17,4 +17,9 @@ const findName = async (id) => {
   return false;
 };
 
-export { create, findAllActiveShoppingLists, findName };
+const deactivateList = async (id) => {
+  await sql`UPDATE shopping_lists
+    SET active = FALSE WHERE id = ${ id }`;
+};
+
+export { create, findAllActiveShoppingLists, findName, deactivateList };
