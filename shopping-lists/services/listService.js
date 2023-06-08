@@ -22,4 +22,14 @@ const deactivateList = async (id) => {
     SET active = FALSE WHERE id = ${ id }`;
 };
 
-export { create, findAllActiveShoppingLists, findName, deactivateList };
+const numberOfLists = async () => {
+  const rows = await sql`SELECT COUNT(*) AS list_count
+  FROM shopping_lists`;
+
+  if (rows && rows.length > 0) {
+    return rows[0];
+  }
+
+};
+
+export { create, findAllActiveShoppingLists, findName, deactivateList, numberOfLists };

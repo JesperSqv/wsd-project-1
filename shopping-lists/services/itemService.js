@@ -22,4 +22,14 @@ const collectItem = async (id) => {
     SET collected = TRUE WHERE id = ${ id }`;
 };
 
-export { createItem, findItems, collectItem };
+const numberOfItems = async () => {
+  const rows = await sql`SELECT COUNT(*) AS item_count
+  FROM shopping_list_items`;
+
+  if (rows && rows.length > 0) {
+    return rows[0];
+  }
+
+};
+
+export { createItem, findItems, collectItem, numberOfItems };
