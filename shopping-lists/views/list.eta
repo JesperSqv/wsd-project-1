@@ -6,7 +6,7 @@
 <h2>Add an item to the list!</h2>
 
 <form method="POST" action="/lists/<%= it.list.id %>/items" >
-  Name: <input type="text" name="itemName" />
+  Name: <input type="text" name="name" />
   <input type="submit" value="Add an item!" />
 </form>
 

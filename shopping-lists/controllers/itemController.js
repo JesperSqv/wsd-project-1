@@ -9,7 +9,7 @@ const responseDetails = {
 
 const createItem = async (request) => {
     const formData = await request.formData();
-    const name = formData.get("itemName");
+    const name = formData.get("name");
 
     const url = new URL(request.url);
     const urlParts = url.pathname.split("/");
