@@ -30,3 +30,4 @@
 <% }); %>
 </ul>
 <% } %>
+<a href="/lists">Go back to shopping lists page!</a>

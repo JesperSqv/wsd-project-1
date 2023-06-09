@@ -20,3 +20,4 @@
     </li>
 <% }); %>
 </ul>
+<a href="/">Go back to main page!</a>
