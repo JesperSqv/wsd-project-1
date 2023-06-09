@@ -29,6 +29,7 @@ The repository structure, as well as instructions on how to deploy and test the 
     * **/utils**: Directory that contains utils used in the application.
         * **requestUtils.js**: Contains redirectTo that is used to redirect with the 303 status.
     * **deps.js**: Contains all the application dependencies.
+    * **Dockerfile**: Dockerfile used for online deployment.
 * **/flyway/sql**: This directory contains the SQL scripts used to initialize the database.
 * **/e2e-playwright**: Directory that contains everything related to e2e tests.
 
