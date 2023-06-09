@@ -48,7 +48,7 @@ When adding a new shopping list or a new item to a shopping list, the applicatio
 This application uses a connection pool to handle the database connections. Real database credentials are not included in the submission code.
 
 ### Tests
-The project includes five meaningful end-to-end tests to verify the functionality of the application.
+The project includes five meaningful end-to-end tests to verify the functionality of the application. Tests can be run with the command: `docker-compose run --entrypoint=npx e2e-playwright playwright test && docker-compose rm -sf`
 
 ### Online Deployment
 The application has been deployed online and is fully functional. Please find the online deployment address in the README.md file.
