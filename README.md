@@ -1,7 +1,7 @@
 # Project 1: Shared shopping list
 
 ## Overview
-This web application, "Shopping Lists", is designed for managing shared shopping lists. It is built using a three-tier architecture with views, controllers, services, and database layers. The main functionality of the application includes creating and managing shopping lists, adding items to the lists, marking items as collected, and providing an overall summary of the shopping lists and items. The application is primarily hosted locally at http://localhost:7777.
+This web application, "Shopping Lists", is designed for managing shared shopping lists. It is built using a three-tier architecture with views, controllers, services, and database layers. The main functionality of the application includes creating and managing shopping lists, adding items to the lists, marking items as collected, and providing an overall summary of the shopping lists and items. The application is hosted at https://wsd-project-1-cz22.onrender.com.
 
 The repository structure, as well as instructions on how to deploy and test the application, are outlined below.
 
@@ -51,7 +51,7 @@ This application uses a connection pool to handle the database connections. Real
 The project includes five meaningful end-to-end tests to verify the functionality of the application. Tests can be run with the command: `docker-compose run --entrypoint=npx e2e-playwright playwright test && docker-compose rm -sf`
 
 ### Online Deployment
-The application has been deployed online and is fully functional. Please find the online deployment address in the README.md file.
+The application has been deployed online and is fully functional. Here is the link to it https://wsd-project-1-cz22.onrender.com.
 
 ### Running the Application Locally
 To run the application locally, please ensure you have docker-compose installed. Once docker-compose is ready, navigate to the project's root directory and execute the `docker-compose up` command.
