@@ -8,7 +8,8 @@ const createItem = async (listId, name) => {
 
 const findItems = async (listId) => {
   const rows = await sql`SELECT * FROM shopping_list_items
-    WHERE shopping_list_id = ${ listId } ORDER BY name`;
+    WHERE shopping_list_id = ${ listId } 
+    ORDER BY collected ASC, name ASC`;
 
   if (rows && rows.length > 0) {
     return rows;
